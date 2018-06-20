@@ -8,8 +8,12 @@
     "array-each": "^1.0.1",
     "async": "^2.6.1",
     "benchmark": "^2.1.4",
+    "event-emitter": "^0.3.5",
+    "eventemitter3": "^3.1.0",
     "foreach": "^2.0.5",
     "lodash": "^4.17.10",
-    "travis-benchmark": "^0.0.6"
+    "tiny-emitter": "^2.0.2",
+    "travis-benchmark": "^0.0.6",
+    "ultron": "^1.1.1"
   }
 }
