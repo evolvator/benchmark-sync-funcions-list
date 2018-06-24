@@ -177,6 +177,11 @@ async.timesSeries(
           pointer = pointer.next;
         }
       });
+      suite.add('[linked-list] for', function() {
+        for (var pointer = start; pointer; pointer = pointer.next) {
+          pointer.listener();
+        }
+      });
     })();
     
     tb.wrapSuite(suite, function() { next(); });
