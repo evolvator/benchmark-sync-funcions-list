@@ -18,6 +18,14 @@ async.timesSeries(
     var count = Math.pow(2, t);
     var suite = new Benchmark.Suite(`${count} list size`);
     
+    var callbackSync = function(value, index) {
+      value();
+    };
+    var callbackAsync = function(value, index, next) {
+      value();
+      next();
+    };
+    
     var eventEmitter = new EventEmitter();
     eventEmitter.setMaxListeners(0);
     _.times(count, function() { eventEmitter.on('test', function() {}); });
@@ -87,39 +95,25 @@ async.timesSeries(
       }
     });
     suite.add('[array] forEach', function() {
-      array.forEach(function(value, index) {
-        value();
-      });
+      array.forEach(callbackSync);
     });
     suite.add('[array] lodash@4.17.10 forEach', function() {
-      _.forEach(array, function(value, index) {
-        value();
-      });
+      _.forEach(array, callbackSync);
     });
     suite.add('[array] async@2.6.1 forEachOf', function() {
-      async.forEachOf(array, function(value, index, next) {
-        value();
-        next();
-      });
+      async.forEachOf(array, callbackAsync);
     });
     suite.add('[array] async@2.6.1 forEachOfSeries', function() {
-      async.forEachOfSeries(array, function(value, index, next) {
-        value();
-        next();
-      });
+      async.forEachOfSeries(array, callbackAsync);
     });
     suite.add('[array] async@2.6.1 series', function() {
       async.series(arrayAsync);
     });
     suite.add('[array] foreach@2.0.5', function() {
-      foreach(array, function(value, index) {
-        value();
-      });
+      foreach(array, callbackSync);
     });
     suite.add('[array] array-each@1.0.1', function() {
-      arrayEach(array, function(value, index) {
-        value();
-      });
+      arrayEach(array, callbackSync);
     });
     
     // [object]
@@ -136,29 +130,19 @@ async.timesSeries(
       }
     });
     suite.add('[object] lodash@4.17.10 forEach', function() {
-      _.forEach(object, function(value, index) {
-        value();
-      });
+      _.forEach(object, callbackSync);
     });
     suite.add('[object] async@2.6.1 forEachOf', function() {
-      async.forEachOf(object, function(value, index, next) {
-        value();
-        next();
-      });
+      async.forEachOf(object, callbackAsync);
     });
     suite.add('[object] async@2.6.1 forEachOfSeries', function() {
-      async.forEachOfSeries(object, function(value, index, next) {
-        value();
-        next();
-      });
+      async.forEachOfSeries(object, callbackAsync);
     });
     suite.add('[object] async@2.6.1 series', function() {
       async.series(objectAsync);
     });
     suite.add('[object] foreach@2.0.5', function() {
-      foreach(object, function(value, index) {
-        value();
-      });
+      foreach(object, callbackSync);
     });
     
     // [linked-list]
