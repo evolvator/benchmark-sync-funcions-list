@@ -2,7 +2,7 @@
 
 What's the fastest way to sync iterate functions list?
 
-[![Build Status](https://travis-ci.org/evolvator/benchmark-sync-functions-list.svg?branch=master)](https://travis-ci.org/evolvator/benchmark-sync-functions-list)
+[![Build Status](https://travis-ci.org/evolvator/benchmark-sync-functions-list.svg?branch=code)](https://travis-ci.org/evolvator/benchmark-sync-functions-list)
 
 [Executable code](https://github.com/evolvator/benchmark-sync-functions-list/tree/code)
 
