@@ -2,6 +2,8 @@
 
 What's the fastest way to sync iterate functions list?
 
+## [DEPRICATED](https://github.com/orgs/evolvator/projects?utf8=%E2%9C%93&query=is%3Aclosed+Tasks+v0)
+
 [![Build Status](https://travis-ci.org/evolvator/benchmark-sync-functions-list.svg?branch=code)](https://travis-ci.org/evolvator/benchmark-sync-functions-list)
 
 [Executable code](https://github.com/evolvator/benchmark-sync-functions-list/tree/code)
